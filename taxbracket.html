@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tax Bracket Calculation</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Tax calculator for 2021 Married filing jointly</h1>
+      <div>
+        <p>Enter your total earnings:</p>
+        <form @submit.prevent="handleFormSubmit">
+          <input v-model="earning" type="number" autofocus />
+          <input type="submit" value="Calculate" />
+        </form>
+      </div>
+      <div>
+        <p>Federal Tax: <b>{{formatCurr(taxResult)}}</b></p>
+        <p>IL State Tax: <b>{{formatCurr(stateTax)}}</b></p>
+        <p>Total Tax: <b>{{formatCurr((stateTax + taxResult))}}</b></p>
+        <h3>Calculation Breakdown</h3>
+        <p><pre>{{calculation}}</pre></p>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.2.26/dist/vue.global.js"></script>
+    <!-- <script src="https://unpkg.com/browse/vue@3.2.26/dist/vue.global.prod.js"></script> -->
+    <script src="js/taxbracket.js"></script>
+  </body>
+</html>
